@@ -36,10 +36,16 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_countries'
 ]
 
-PROJECT_APPS = [ 
-    'users.apps.UsersConfig'
+PROJECT_APPS = [
+    'core.apps.CoreConfig',
+    'users.apps.UsersConfig',
+    'rooms.apps.RoomsConfig',
+    'reviews.apps.ReviewsConfig',
+    'reservations.apps.ReservationsConfig',
+    'conversations.apps.ConversationsConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
