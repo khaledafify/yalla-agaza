@@ -20,11 +20,15 @@ class CustomRoomType(admin.ModelAdmin):
 class CustomRoomType(admin.ModelAdmin):
     pass
 
+@admin.register(models.Photo)
+class CustomPhoto(admin.ModelAdmin):
+    pass
+
+class CustomPhotoInline(admin.TabularInline):
+    model = models.Photo
+
 
 @admin.register(models.Room)
 class CustomRoom(admin.ModelAdmin):
-    pass
-
-@admin.register(models.Photo)
-class CustomPhoto(admin.ModelAdmin):
+    inlines = (CustomPhotoInline,)
     pass

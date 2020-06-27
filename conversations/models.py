@@ -10,6 +10,7 @@ class Conversation(core_models.TimestampedModel):
     def __str__(self):
         return f'{str(self.created)}'
 
+
 class Message(core_models.TimestampedModel):
     message = models.CharField(max_length=255)
     user = models.ForeignKey(user_models.User,on_delete=models.CASCADE)

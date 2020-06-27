@@ -6,3 +6,6 @@ from . import models
 @admin.register(models.Reservation)
 class ReservationCustomAdminModel(admin.ModelAdmin):
     pass
+
+
+
