@@ -55,7 +55,6 @@ class HouseRule(AbstractItem):
 
 
 class Room(core_models.TimestampedModel):
-
     name = models.CharField(max_length=255,default='')
     description = models.TextField(default='e')
     country = CountryField(default="EG")
@@ -70,10 +69,10 @@ class Room(core_models.TimestampedModel):
     check_out = models.TimeField(default=None)
     instant_book = models.BooleanField(default=False)
     host = models.ForeignKey(user_models.User,on_delete=models.CASCADE,default=None)
-    room_type = models.ForeignKey(RoomType,blank=True,null=True,on_delete=models.SET_NULL)
-    amenities = models.ManyToManyField(Amenity,blank=True)
-    facilities = models.ManyToManyField(Facility,blank=True)
-    house_rules = models.ManyToManyField(HouseRule,blank=True)
+    room_type = models.ForeignKey(RoomType,related_name='rooms',blank=True,null=True,on_delete=models.SET_NULL)
+    amenities = models.ManyToManyField(Amenity,blank=True,related_name='rooms')
+    facilities = models.ManyToManyField(Facility,blank=True,related_name='rooms')
+    house_rules = models.ManyToManyField(HouseRule,blank=True,related_name='rooms')
 
     def __str__(self):
         return self.name

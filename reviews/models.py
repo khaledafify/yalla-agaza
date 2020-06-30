@@ -20,5 +20,20 @@ class Review(core_models.TimestampedModel):
     published = models.BooleanField(default=False)
 
 
+
+    def avg_rating(self):
+        sum = 0
+        sum += self.accuracy
+        sum += self.communication
+        sum += self.cleanliness
+        sum += self.location
+        sum += self.value
+        sum += self.check_in
+
+        return sum / 6
+
+
+    avg_rating.short_description = "Avg Rating"
+
     def __str__(self):
         return f"{self.review}, [{self.room}]"
